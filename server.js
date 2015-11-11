@@ -30,6 +30,7 @@ var app = express();
 	//  2) Steps to Read
 		// 2-1) Create a server route to handle the GET request.
 	app.get('/api/todos/:id', function(req,res) {
+		// Get the todo id from the URL params and save it to a variable.
 		var todoId = parseInt(req.params.id);
 		var foundTodo = todos.filter(function(todo) {
 			return todo._id == todoId;
