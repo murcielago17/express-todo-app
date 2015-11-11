@@ -19,5 +19,9 @@ var app = express();
 
 		// 4) add a new todo to the todos array
 		todos.push(newTodo);
-		
+
+
+		// 5) Send new todo as JSON response
+		res.json(newTodo);
+
 	});
