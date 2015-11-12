@@ -41,3 +41,29 @@ var app = express();
 
 	});
 
+
+// Just like the steps to CREATE and READ, I may want to 
+// write steps to UPDATE and DELETE.
+
+	//  3) Testing Create & Read
+		// <-- 'Example Request Spec: Create' -->
+		var request = require('request'),
+			expect = require('chai').expect,
+			baseUrl =  'http://localhost:3000';
+
+		it('should post a single blob', function(done){
+			request.post(
+			{
+				url: baseUrl + '/blobs',
+				form: {
+					name: 'WDI 24',
+					location: 'SF'
+				}
+			},
+			function(error, response, body){
+				expect(response.statusCode).to.equal(200);
+				done();
+			}
+			);
+		});
+
