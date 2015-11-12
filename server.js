@@ -42,8 +42,17 @@ var app = express();
 	});
 
 
+
 // Just like the steps to CREATE and READ, I may want to 
-// write steps to UPDATE and DELETE.
+// write steps to UPDATE and DELETE; in this case not required.
+
+	
+	// Steps to Delete (addendum);
+		app.delete('/api/todos/:id', function (req, res) {
+		  // use the id to delete the todo we want to remove.
+		  res.send('DELETE request to homepage');
+		});
+	
 
 	//  3) Testing Create & Read
 		// 3-1) <-- 'Example Request Spec: Create' -->
@@ -68,8 +77,8 @@ var app = express();
 		});
 		//  3-2) <-- 'Example Request Spec: Read' -->
 		var Request = require('Request'),
-		var expect = require ('chai').expect,
-		baseUrl = 'http//localhost:3000';
+			expect = require('chai').expect,
+			baseUrl = 'http//localhost:3000';
 
 		// 3-2-1) testing for all blobs
 		it('should return statusCode 200', function(done) {
