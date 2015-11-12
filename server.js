@@ -68,13 +68,14 @@ var app = express();
 		});
 		//  3-2) <-- 'Example Request Spec: Read' -->
 		var Request = require('Request'),
-		var expect = require ('chail').expect,
+		var expect = require ('chai').expect,
 		baseUrl = 'http//localhost:3000';
 
-		// testing for all blobs
+		// 3-2-1) testing for all blobs
 		it('should return statusCode 200', function(done) {
 		  request(baseUrl + '/blobs', function(error, response, body) {
 		    expect(response.statusCode).to.equal(200);
 		    done();
 		  });
 		});
+
