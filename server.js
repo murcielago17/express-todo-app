@@ -1,4 +1,4 @@
-var express = requires('express');
+var express = require('express');
 var app = express();
 	
 
@@ -54,44 +54,4 @@ var app = express();
 		});
 	
 
-	//  3) Testing Create & Read
-		// 3-1) <-- 'Example Request Spec: Create' -->
-		var request = require('request'),
-			expect = require('chai').expect,
-			baseUrl =  'http://localhost:3000';
-
-		it('should post a single blob', function(done){
-			request.post(
-			{
-				url: baseUrl + '/blobs',
-				form: {
-					name: 'WDI 24',
-					location: 'SF'
-				}
-			},
-			function(error, response, body){
-				expect(response.statusCode).to.equal(200);
-				done();
-			}
-			);
-		});
-		//  3-2) <-- 'Example Request Spec: Read' -->
-		var Request = require('Request'),
-			expect = require('chai').expect,
-			baseUrl = 'http//localhost:3000';
-
-		// 3-2-1) testing for all blobs
-		it('should return statusCode 200', function(done) {
-		  request(baseUrl + '/blobs', function(error, response, body) {
-		    expect(response.statusCode).to.equal(200);
-		    done();
-		  });
-		});
-		// 3-2-2) testing for a single blob
-		it('should return statusCode 200', function(done) {
-		    request(baseUrl + '/blobs/:id', function(error, response, body) {
-		      expect(response.statusCode).to.equal(200);
-		      done();
-		    });
-		});
-
+		
