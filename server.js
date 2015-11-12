@@ -78,4 +78,11 @@ var app = express();
 		    done();
 		  });
 		});
+		// 3-2-2) testing for a single blob
+		it('should return statusCode 200', function(done) {
+		    request(baseUrl + '/blobs/:id', function(error, response, body) {
+		      expect(response.statusCode).to.equal(200);
+		      done();
+		    });
+		});
 
