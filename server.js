@@ -36,6 +36,8 @@ var app = express();
 		var foundTodo = todos.filter(function(todo) {
 			return todo._id == todoId;
 		})[0];
+		// 2-4) Respond with the selected todo.
+		res.json(foundTodo);
 
 	});
 
