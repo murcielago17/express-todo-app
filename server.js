@@ -46,7 +46,7 @@ var app = express();
 // write steps to UPDATE and DELETE.
 
 	//  3) Testing Create & Read
-		// <-- 'Example Request Spec: Create' -->
+		// 3-1) <-- 'Example Request Spec: Create' -->
 		var request = require('request'),
 			expect = require('chai').expect,
 			baseUrl =  'http://localhost:3000';
@@ -66,4 +66,15 @@ var app = express();
 			}
 			);
 		});
+		//  3-2) <-- 'Example Request Spec: Read' -->
+		var Request = require('Request'),
+		var expect = require ('chail').expect,
+		baseUrl = 'http//localhost:3000';
 
+		// testing for all blobs
+		it('should return statusCode 200', function(done) {
+		  request(baseUrl + '/blobs', function(error, response, body) {
+		    expect(response.statusCode).to.equal(200);
+		    done();
+		  });
+		});
