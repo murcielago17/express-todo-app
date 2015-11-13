@@ -43,3 +43,22 @@ module.exports = Todo;
         res.json(foundTodo);
       });
     });
+  // update todo
+      app.put('/api/todos/:id', function (req, res) {
+        // get todo id from url params (`req.params`)
+        var todoId = req.params.id;
+
+     // find todo in db by id
+        Todo.findOne({ _id: todoId }, function (err, foundTodo) {
+     // update the todos's attributes
+          foundTodo.task = req.body.task;
+          foundTodo.description = req.body.description;
+
+       // save updated todo in db
+          foundTodo.save(function (err, savedTodo) {
+            res.json(savedTodo);
+          });
+        });
+      });
+
+      // update todo// get todo id from url params (`req.params`)// find todo in db by id// update the todos's attributes// save updated todo in db
