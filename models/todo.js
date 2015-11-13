@@ -61,4 +61,13 @@ module.exports = Todo;
         });
       });
 
-      // update todo// get todo id from url params (`req.params`)// find todo in db by id// update the todos's attributes// save updated todo in db
+   // delete todo
+  app.delete('/api/todos/:id', function (req, res) {
+    // get todo id from url params (`req.params`)
+    var todoId = req.params.id;
+
+    // find todo in db by id and remove
+    Todo.findOneAndRemove({ _id: todoId }, function (err, deletedTodo) {
+      res.json(deletedTodo);
+    });
+  });
