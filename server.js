@@ -1,6 +1,8 @@
 var express = require('express');
-var app = express();
-	
+var app = express();	//
+ //after installing mongoose:
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost/todo-app'); 
 
 	// 1) Steps to Create
 		// 1-1) Create a server route to handle de POST request
@@ -54,4 +56,7 @@ var app = express();
 		});
 	
 
-		
+app.listen(3000, function(){
+	console.log('server started');
+
+});
