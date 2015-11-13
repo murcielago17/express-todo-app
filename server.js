@@ -4,9 +4,11 @@ var app = express();	//
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/todo-app'); 
 
+// In server.js, require your model.
+var Todo = require('.models/todo');
 	// 1) Steps to Create
 		// 1-1) Create a server route to handle de POST request
-	app.post('/api/todos', function(req,res){
+app.post('/api/todos', function(req,res){
 		// 1-2) Create a new todo with form data
 		var newTodo =req.body;
 
@@ -31,7 +33,7 @@ mongoose.connect('mongodb://localhost/todo-app');
 
 	//  2) Steps to Read
 		// 2-1) Create a server route to handle the GET request.
-	app.get('/api/todos/:id', function(req,res) {
+app.get('/api/todos/:id', function(req,res) {
 		// 2-2) Get the todo id from the URL params and save it to a variable.
 		var todoId = parseInt(req.params.id);
 		// 2-3) Use the id to find the todo we want to read.
