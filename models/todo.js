@@ -21,7 +21,7 @@ module.exports = Todo;
     });
   });
 
-  
+
 // create new todo
   app.post('/api/todos', function (req, res) {
     // create new todo with form data (`req.body`)
@@ -32,3 +32,14 @@ module.exports = Todo;
       res.json(savedTodo);
     });
   });
+
+  // get one todo
+    app.get('/api/todos/:id', function (req, res) {
+      // get todo id from url params (`req.params`)
+      var todoId = req.params.id;
+
+      // find todo in db by id
+      Todo.findOne({ _id: todoId }, function (err, foundTodo) {
+        res.json(foundTodo);
+      });
+    });
