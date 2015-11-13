@@ -4,7 +4,7 @@ var app = express();	//
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/todo-app'); 
 
-// In server.js, require your model.
+// In server.js, require the model.
 var Todo = require('.models/todo');
 	// 1) Steps to Create
 		// 1-1) Create a server route to handle de POST request
