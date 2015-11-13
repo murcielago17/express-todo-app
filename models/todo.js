@@ -22,3 +22,13 @@ module.exports = Todo;
   });
 
   
+// create new todo
+  app.post('/api/todos', function (req, res) {
+    // create new todo with form data (`req.body`)
+    var newTodo = new Todo(req.body);
+
+    // save new todo in db
+    newTodo.save(function (err, savedTodo) {
+      res.json(savedTodo);
+    });
+  });
